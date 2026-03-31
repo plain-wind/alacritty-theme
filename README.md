@@ -67,6 +67,43 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.zshrc
 ```
 
+安装脚本也会同时安装补全文件：
+
+- Bash: `~/.local/share/bash-completion/completions/alacritty-theme`
+- Zsh: `~/.zsh/completions/_alacritty-theme`
+
+## Tab 补全
+
+### Bash
+
+安装后可在当前 shell 直接启用：
+
+```bash
+source ~/.local/share/bash-completion/completions/alacritty-theme
+```
+
+之后支持：
+
+- `alacritty-theme <TAB>` 补全命令（`set/list/ls`）
+- `alacritty-theme set <TAB>` 补全主题名（动态读取 `alacritty-theme list`）
+
+如果希望每次新开终端自动生效，请把上面的 `source` 命令加入 `~/.bashrc`。
+
+### Zsh
+
+把补全目录加入 `fpath` 并初始化补全系统：
+
+```bash
+echo 'fpath=("$HOME/.zsh/completions" $fpath)' >> ~/.zshrc
+echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+source ~/.zshrc
+```
+
+之后支持：
+
+- `alacritty-theme <TAB>` 补全命令（`set/list/ls`）
+- `alacritty-theme set <TAB>` 补全主题名（动态读取 `alacritty-theme list`）
+
 ## 卸载
 
 项目包含卸载脚本，会从 `~/.local/bin` 删除 `alacritty-theme`：
@@ -80,6 +117,11 @@ source ~/.zshrc
 ```bash
 INSTALL_DIR="$HOME/bin" ./scripts/uninstall.sh
 ```
+
+卸载脚本也会移除补全文件：
+
+- `~/.local/share/bash-completion/completions/alacritty-theme`
+- `~/.zsh/completions/_alacritty-theme`
 
 ## 使用
 
