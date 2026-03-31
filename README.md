@@ -123,6 +123,8 @@ INSTALL_DIR="$HOME/bin" ./scripts/uninstall.sh
 - `~/.local/share/bash-completion/completions/alacritty-theme`
 - `~/.zsh/completions/_alacritty-theme`
 
+并且会自动尝试清理安装过程中创建的空目录（仅在目录为空时删除）。
+
 ## 使用
 
 ### 1. 列出可用主题
