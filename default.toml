@@ -1,0 +1,20 @@
+[window]
+# 透明度 (0.0 完全透明, 1.0 不透明)
+opacity = 0.8
+# 窗口边距
+padding = { x = 10, y = 10 }
+# 动态标题
+dynamic_title = true
+# columns 是宽度（字符数），lines 是高度（行数）
+dimensions = { columns = 100, lines = 30 }
+
+[font]
+normal = { family = "Maple Mono NF CN", style = "Regular" }
+size = 12.0
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+
+# [colors.primary]
+# background = "#1a1b26" # 东京暗夜风格
+# foreground = "#c0caf5"

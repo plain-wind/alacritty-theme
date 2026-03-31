@@ -18,6 +18,8 @@ cargo --version
 
 ## 克隆官方主题
 
+官方主题仓库：<https://github.com/alacritty/alacritty-theme>
+
 按以下命令准备官方主题仓库：
 
 ```bash
@@ -47,6 +49,18 @@ cargo build --release
 
 ```bash
 ./scripts/install.sh
+```
+
+安装脚本会确保 `~/.config/alacritty/default.toml` 存在：
+
+- 如果不存在：自动从项目中的 `default.toml` 复制过去
+- 如果已存在：保留用户现有文件，不覆盖
+
+如果你想手动复制，也可以执行：
+
+```bash
+mkdir -p ~/.config/alacritty
+cp ./default.toml ~/.config/alacritty/default.toml
 ```
 
 安装完成后可验证：
@@ -171,3 +185,7 @@ cargo run -- set gruvbox_dark
   - 检查是否已完成官方主题克隆步骤
 - 提示 `Theme does not exist`
   - 先运行 `list` 或 `ls` 确认主题名拼写
+
+## 开源协议
+
+本项目使用 MIT License，详情见 `LICENSE` 文件。
