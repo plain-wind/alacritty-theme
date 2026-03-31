@@ -1,30 +1,36 @@
 #compdef alacritty-theme
 
-_alacritty_theme() {
+_alacritty-theme() {
   local -a commands themes
 
   commands=(
     'set:设置主题'
     'list:列出主题'
     'ls:list 的简写'
-    'help:显示帮助'
   )
 
   if (( CURRENT == 2 )); then
     _describe 'command' commands
-    return
+    return 0
   fi
 
   case "${words[2]}" in
     set)
       themes=("${(@f)$(alacritty-theme list 2>/dev/null)}")
-      _describe 'theme' themes
+      if (( ${#themes} > 0 )); then
+        _describe 'theme' themes
+      else
+        _message 'no themes found'
+      fi
+      return 0
       ;;
-    list|ls|help)
+    list|ls)
+      return 0
       ;;
     *)
+      return 0
       ;;
   esac
 }
 
-compdef _alacritty_theme alacritty-theme
+compdef _alacritty-theme alacritty-theme
